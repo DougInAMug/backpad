@@ -13,3 +13,9 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// useless table for initialization
+model Init {
+  id      Int     @id @default(autoincrement())
+  content String?
+}
