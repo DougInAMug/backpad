@@ -1,6 +1,5 @@
 # backpad
-
-Imagine a **pad attached to your back** that your colleauges could write and read, but you can't. Don't worry: they all have one too! 
+Imagine a **pad attached to your back** that your colleauges could read and write, but you can't 🗒️ Don't worry: they all have one too! 😅
 
 This would allow your colleagues to communicate your special features to new people, saving them from finding out the hard way. It could show up [missing stairs](https://en.wikipedia.org/wiki/Missing_stair) possibly bringing serious issues to resolution. Perhaps it enables new forms of bullying?
 
@@ -21,3 +20,11 @@ This idea comes from Seth Frey's [“Why can’t I work with this person?”: Yo
 * [Prisma](https://www.prisma.io/orm) - object relational mapper
 * PostgreSQL - relational database management system
 * node, typescript, vite...
+
+## Steps I took to set up
+```
+// created repo on github
+git clone git@github.com:DougInAMug/backpad.git
+pnpx sv create . // all defaults: minimal, TS, no add-ons
+pnpm run dev // check all working
+```
