@@ -22,9 +22,10 @@ This idea comes from Seth Frey's [“Why can’t I work with this person?”: Yo
 * node, typescript, vite...
 
 ## Steps I took to set up
-```
+```bash
 // created repo on github
 git clone git@github.com:DougInAMug/backpad.git
 pnpx sv create . // all defaults: minimal, TS, no add-ons
 pnpm run dev // check all working
+
 ```
