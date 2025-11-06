@@ -21,6 +21,15 @@ This idea comes from Seth Frey's [“Why can’t I work with this person?”: Yo
 * PostgreSQL - relational database management system
 * node, typescript, vite...
 
+## Setup
+```bash
+pnpm i
+# adapt `.env.example` and rename `.env`
+pnpx prisma migrate dev --name init
+pnpx prisma generate
+
+```
+
 ## Steps I took to set up
 ```bash
 # created empty repo on github
@@ -37,9 +46,14 @@ pnpm i prisma --save-dev
 pnpx prisma init --datasource-provider postgresql --output ../node_modules/@prisma-generated/client # https://github.com/prisma/prisma/discussions/20200#discussioncomment-7441241
 pnpx prisma migrate dev --name init
 
+# prisma client setup
 # https://www.prisma.io/docs/orm/prisma-client/setup-and-configuration/introduction
 pnpm i @prisma/client
 pnpx prisma generate
+
+# better-auth installation
+# https://www.better-auth.com/docs/installation
+pnpm add better-auth
 ```
 
 # Todo
