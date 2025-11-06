@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <h1>Backpad</h1>
 
 <form method="POST" action="?/addInit">
@@ -10,3 +7,8 @@
     <button>Submit init</button>
   </label>
 </form>
+
+<details>
+  <summary>Details</summary>
+  Something small enough to escape casual notice.
+</details>
