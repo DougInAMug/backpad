@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { enhance } from "$app/forms";
+  import { goto } from "$app/navigation";
   import { authClient } from "$lib/auth-client";
+
   const session = authClient.useSession();
 
   let email = $state("");
@@ -8,9 +9,9 @@
   let password = $state("");
 </script>
 
-<h1>dsaf</h1>
+<h1>Create account</h1>
 
-<form use:enhance>
+<form>
   <label for="email">Email:</label>
   <input type="email" name="email" bind:value={email} />
   <label for="name">Name:</label>
@@ -24,8 +25,7 @@
           email, // user email address
           password, // user password -> min 8 characters by default
           name, // user display name
-          // image, // User image URL (optional)
-          callbackURL: "", // A URL to redirect to after the user verifies their email (optional)
+          callbackURL: "/blue", // A URL to redirect to after the user verifies their email (optional)
         },
         {
           onRequest: (ctx) => {
@@ -33,6 +33,7 @@
           },
           onSuccess: (ctx) => {
             //redirect to the dashboard or sign in page
+            // goto("/logged-in-user-view")
           },
           onError: (ctx) => {
             // display the error message
@@ -40,22 +41,22 @@
           },
         }
       );
-    }}>Sign up</button
+    }}>Create account</button
   >
 </form>
 
 <div>
   {#if $session.data}
     <div>
-      <p>
-        {$session?.data?.user.name}
+      <p>You are logged in as: 
+        <strong>{$session?.data?.user.name}</strong>
       </p>
       <button
         onclick={async () => {
           await authClient.signOut();
         }}
       >
-        Sign Out
+        Log out
       </button>
     </div>
   {/if}
