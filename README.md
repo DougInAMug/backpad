@@ -40,6 +40,14 @@ pnpx prisma migrate dev --name init
 # https://www.prisma.io/docs/orm/prisma-client/setup-and-configuration/introduction
 pnpm i @prisma/client
 pnpx prisma generate
-
-
 ```
+
+# Todo
+- [ ] Setup better-auth
+- [ ] Create sign-up, log-in, log-out flows
+- [ ] Adapt `User` data model from better-auth to contain `backpad` (?)
+- [ ] Create view of backpads
+    - SELECT backpad FROM every user whose id != id of logged-in user
+    - display backpads as list
+    - if feeling fancy, an accordian.
+        - [details](https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/) exists now, what joy
