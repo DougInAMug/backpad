@@ -27,7 +27,6 @@ pnpm i
 # adapt `.env.example` and rename `.env`
 pnpx prisma migrate dev --name init
 pnpx prisma generate
-
 ```
 
 ## Steps I took to set up
@@ -57,11 +56,13 @@ pnpm add better-auth
 ```
 
 # Todo
-- [ ] Setup better-auth
-- [ ] Create sign-up, log-in, log-out flows
-- [ ] Adapt `User` data model from better-auth to contain `backpad` (?)
-- [ ] Create view of backpads
-    - SELECT backpad FROM every user whose id != id of logged-in user
-    - display backpads as list
-    - if feeling fancy, an accordian.
-        - [details](https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/) exists now, what joy
+- [x] Make wireframes
+    - Done on [Penpot](https://design.penpot.app/#/workspace?team-id=2a21f5ae-60ee-8151-8001-f7f599a9b6fe&file-id=20e128ff-6495-80ff-8007-11f639c8af4f&page-id=20e128ff-6495-80ff-8007-11f639c8af50)
+- [x] Setup better-auth
+- [x] Create sign-up, log-in, log-out flows
+- [x] Adapt `User` data model from better-auth to contain `backpad`
+- [x] Create view of backpads
+    - [x] SELECT backpad FROM every user whose id != id of logged-in user
+    - [x] display backpads as list. (See [details](https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/))
+- [ ] Make backpads editable. [Form actions](https://svelte.dev/docs/kit/form-actions).
+- [ ] Make it prettier
