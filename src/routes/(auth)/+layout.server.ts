@@ -6,7 +6,7 @@ export const load: LayoutServerLoad = async ({ request }) => {
   const session = await auth.api.getSession({ headers: request.headers });
 
   if (!session) {
-    throw redirect(302, "/login");
+    throw redirect(302, "/logIn");
   }
   return {
     user: session.user,
