@@ -2,14 +2,13 @@
   import { goto } from "$app/navigation";
   import { authClient } from "$lib/auth-client";
 
-  const session = authClient.useSession();
-
   let email = $state("");
   let name = $state("");
   let password = $state("");
 </script>
 
-<h1>Create account</h1>
+<h1>Backpad</h1>
+<h2>Create account</h2>
 
 <form>
   <label for="email">Email:</label>
@@ -33,7 +32,7 @@
           },
           onSuccess: (ctx) => {
             //redirect to the dashboard or sign in page
-            // goto("/logged-in-user-view")
+            goto("/profile");
           },
           onError: (ctx) => {
             // display the error message
@@ -44,20 +43,3 @@
     }}>Create account</button
   >
 </form>
-
-<div>
-  {#if $session.data}
-    <div>
-      <p>You are logged in as: 
-        <strong>{$session?.data?.user.name}</strong>
-      </p>
-      <button
-        onclick={async () => {
-          await authClient.signOut();
-        }}
-      >
-        Log out
-      </button>
-    </div>
-  {/if}
-</div>
