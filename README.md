@@ -64,5 +64,5 @@ pnpm add better-auth
 - [x] Create view of backpads
     - [x] SELECT backpad FROM every user whose id != id of logged-in user
     - [x] display backpads as list. (See [details](https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/))
-- [ ] Make backpads editable. [Form actions](https://svelte.dev/docs/kit/form-actions).
+- [x] Make backpads editable. [Form actions](https://svelte.dev/docs/kit/form-actions).
 - [ ] Make it prettier

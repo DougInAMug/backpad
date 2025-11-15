@@ -3,9 +3,10 @@
   import { goto } from "$app/navigation";
   import { page } from "$app/state";
   import type { PageData, PageProps } from "./$types";
+  import BackpadEntry from "$lib/components/BackpadEntry.svelte";
 
   const { user } = page.data as PageData;
-  let { data }: PageProps = $props();
+  let { data, form }: PageProps = $props();
 </script>
 
 <h1>Hello {user.name}</h1>
@@ -24,9 +25,6 @@
   Log out
 </button>
 
-{#each data.allUsersMinusCurrent as u}
-  <details>
-    <summary>{u.name}</summary>
-    {u.backpad}
-  </details>
+{#each data.allUsersMinusCurrent as u (u.id)}
+  <BackpadEntry user={u} />
 {/each}
