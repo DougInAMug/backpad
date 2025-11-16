@@ -8,7 +8,6 @@
 <form method="POST" action="?/EditBackpad">
   <details>
     <summary>{user.name}</summary>
-    <p>{user.id}</p>
     <textarea name="localBackpad" bind:value={LocalBackpad} disabled={DisabledState}></textarea>
     {#if EditInProgress === false}
       <button
@@ -30,3 +29,16 @@
     {/if}
   </details>
 </form>
+
+<style>
+  details {
+    width: 20rem;
+    border: 2px solid black;
+  }
+  summary {
+    padding: 0.5rem
+  }
+  textarea {
+    width: 100%;
+  }
+</style>

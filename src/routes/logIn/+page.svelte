@@ -1,12 +1,14 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { authClient } from "$lib/auth-client";
+  import ButtonEntry from "$lib/components/ButtonEntry.svelte";
+  import TitleHome from "$lib/components/TitleHome.svelte";
 
   let email = $state("");
   let password = $state("");
 </script>
 
-<h1>Backpad</h1>
+<TitleHome />
 <h2>Log in</h2>
 
 <form>
@@ -14,8 +16,7 @@
   <input type="email" name="email" bind:value={email} />
   <label for="password">Password:</label>
   <input type="text" name="password" bind:value={password} />
-  <button
-    onclick={async () => {
+  <ButtonEntry text="Log in" --color=lightblue clickHandler={async () => {
       const { data, error } = await authClient.signIn.email(
         {
           email, // user email address
@@ -35,6 +36,12 @@
           },
         }
       );
-    }}>Log in</button
-  >
+    }} />
 </form>
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

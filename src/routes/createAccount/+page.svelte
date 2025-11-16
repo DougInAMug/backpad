@@ -1,13 +1,15 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { authClient } from "$lib/auth-client";
+  import ButtonEntry from "$lib/components/ButtonEntry.svelte";
+  import HomeTitle from "$lib/components/TitleHome.svelte";
 
   let email = $state("");
   let name = $state("");
   let password = $state("");
 </script>
 
-<h1>Backpad</h1>
+<HomeTitle />
 <h2>Create account</h2>
 
 <form>
@@ -17,8 +19,10 @@
   <input type="text" name="name" bind:value={name} />
   <label for="password">Password:</label>
   <input type="text" name="password" bind:value={password} />
-  <button
-    onclick={async () => {
+  <ButtonEntry
+    text="Create account"
+    --color="red"
+    clickHandler={async () => {
       const { data, error } = await authClient.signUp.email(
         {
           email, // user email address
@@ -40,6 +44,13 @@
           },
         }
       );
-    }}>Create account</button
-  >
+    }}
+  />
 </form>
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

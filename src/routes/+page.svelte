@@ -1,10 +1,13 @@
-<script>
-  import { goto } from "$app/navigation";
+<script lang="ts">
+  import ButtonEntry from "$lib/components/ButtonEntry.svelte";
+  import TitleHome from "$lib/components/TitleHome.svelte";
 </script>
 
-<h1>Backpad</h1>
+<TitleHome />
 
 <h2>your co-workers secret manual</h2>
 
-<button onclick={() => goto("/createAccount")}>Create account</button>
-<button onclick={() => goto("/logIn")}>Log in</button>
+<ButtonEntry text="Log in" url="/logIn" --color="lightblue" />
+<ButtonEntry text="Create account" url="/createAccount" --color="red" />
+
+<a href="https://github.com/DougInAMug/backpad">information & code</a>
