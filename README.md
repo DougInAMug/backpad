@@ -12,6 +12,12 @@ This idea comes from Seth Frey's [“Why can’t I work with this person?”: Yo
     * users can:
         * see all other users
         * read and write on the pad every other user has
+* **v1.1**
+    * error handling in forms (back to inputs)
+    * warning if deleting in backpad
+    * basic in-app onboarding
+    * a comprehensive design
+
 
 ## Tech
 * [Svelte & SvelteKit](https://svelte.dev/) - front & backend framework
