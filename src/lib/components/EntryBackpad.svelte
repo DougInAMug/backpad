@@ -1,44 +1,63 @@
 <script lang="ts">
+  import { enhance } from "$app/forms";
+
   let { user } = $props();
   let LocalBackpad = $state(user.backpad);
   let EditInProgress = $state(false);
   let DisabledState = $state(true);
 </script>
 
-<form method="POST" action="?/EditBackpad">
+<form method="POST" action="?/EditBackpad" use:enhance>
   <details>
     <summary>{user.name}</summary>
-    <textarea name="localBackpad" bind:value={LocalBackpad} disabled={DisabledState}></textarea>
-    {#if EditInProgress === false}
-      <button
-        onclick={() => ((EditInProgress = true), (DisabledState = false))}
-      >
-        Edit</button
-      >
-    {:else}
-      <button
-        onclick={() => (
-          (EditInProgress = false),
-          (LocalBackpad = user.backpad),
-          (DisabledState = true)
-        )}
-      >
-        Cancel</button
-      >
-      <button name="id" value={user.id} type="submit" id=""> Save</button>
-    {/if}
+    <div style="padding: 0.5rem">
+      <textarea
+        name="localBackpad"
+        bind:value={LocalBackpad}
+        disabled={DisabledState}
+      ></textarea>
+      <div style="display: flex; flex-direction: row-reverse; gap: 0.5rem">
+        {#if EditInProgress === false}
+          <button
+            onclick={() => ((EditInProgress = true), (DisabledState = false))}
+          >
+            Edit</button
+          >
+        {:else}
+          <button
+            onclick={() => (
+              (EditInProgress = false),
+              (LocalBackpad = user.backpad),
+              (DisabledState = true)
+            )}
+          >
+            Cancel</button
+          >
+          <button name="id" value={user.id} type="submit" id=""> Save</button>
+        {/if}
+      </div>
+    </div>
   </details>
 </form>
 
 <style>
   details {
-    width: 20rem;
-    border: 2px solid black;
+    width: 60ch;
+    border: 3px solid black;
+    margin-top: 1rem  ;
   }
   summary {
-    padding: 0.5rem
+    padding: 0.5rem;
+    cursor: zoom-in;
+    background: rgb(233, 233, 233);
+  }
+  details:open summary {
+    cursor: zoom-out;
   }
   textarea {
     width: 100%;
+  }
+  button {
+    margin-top: 0.5rem;
   }
 </style>

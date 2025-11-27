@@ -13,10 +13,17 @@
 </main>
 
 <style>
+	:global(*) {
+		box-sizing: border-box;
+		margin: 0;
+	}
+	:global(a) {
+		cursor: pointer;
+	}
 	main {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-top: 3rem;
+		margin: 3rem 0;
 	}
 </style>

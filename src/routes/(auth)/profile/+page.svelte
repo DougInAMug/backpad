@@ -31,7 +31,8 @@
 </div>
 
 <style>
-  .EntryBackpad_block {
+  /* .EntryBackpad_block {
     margin-top: 2rem;
-  }
+    border: 2px solid black;
+  } */
 </style>

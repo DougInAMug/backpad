@@ -2,6 +2,7 @@
   import { goto } from "$app/navigation";
   import { authClient } from "$lib/auth-client";
   import ButtonEntry from "$lib/components/ButtonEntry.svelte";
+  import Subtitle from "$lib/components/Subtitle.svelte";
   import HomeTitle from "$lib/components/TitleHome.svelte";
 
   let email = $state("");
@@ -10,7 +11,7 @@
 </script>
 
 <HomeTitle />
-<h2>Create account</h2>
+<Subtitle content={"Create account"} />
 
 <form>
   <label for="email">Email:</label>
@@ -52,5 +53,9 @@
   form {
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
+  }
+  label {
+    margin-top: 0.75rem;
   }
 </style>
