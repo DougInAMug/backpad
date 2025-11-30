@@ -31,6 +31,6 @@
     cursor: pointer
   }
   button:hover {
-    background-color: color-mix(in srgb, currentColor 30%, transparent);
+    background-color: color-mix(in srgb, var(--color) 50%, transparent);
   }
 </style>
