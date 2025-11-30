@@ -27,3 +27,6 @@ vite.config.ts.timestamp-*
 
 # PNPM
 pnpm-lock.yaml
+
+# Fonts
+src/lib/assets/fonts/*
