@@ -1,13 +1,11 @@
 <script lang="ts">
-  import { enhance } from "$app/forms";
-
   let { user } = $props();
   let LocalBackpad = $state(user.backpad);
   let EditInProgress = $state(false);
   let DisabledState = $state(true);
 </script>
 
-<form method="POST" action="?/EditBackpad" use:enhance>
+<form method="POST" action="?/EditBackpad">
   <details>
     <summary>{user.name}</summary>
     <div style="padding: 0.5rem">
