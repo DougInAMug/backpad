@@ -11,4 +11,6 @@
 <ButtonEntry text="Log in" url="/logIn" --color="lightblue" />
 <ButtonEntry text="Create account" url="/createAccount" --color="red" />
 
-<a href="https://github.com/DougInAMug/backpad" style="margin-top: 1rem">information & code</a>
+<a href="https://github.com/DougInAMug/backpad" style="margin-top: 1rem"
+  >information & code</a
+>

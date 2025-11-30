@@ -41,13 +41,20 @@
 </form>
 
 <style>
+  @font-face {
+    font-family: "MoreSugar-Regular";
+    src:
+      local("MoreSugar-Regular"),
+      url(/src/lib/assets/fonts/MoreSugar-Regular.otf);
+  }
   details {
     width: 60ch;
     border: 3px solid black;
-    margin-top: 1rem  ;
+    margin-top: 1rem;
   }
   summary {
     padding: 0.5rem;
+    font-family: MoreSugar-Regular;
     cursor: zoom-in;
     background: rgb(233, 233, 233);
   }

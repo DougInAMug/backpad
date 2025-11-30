@@ -10,9 +10,11 @@
   let { data, form }: PageProps = $props();
 </script>
 
-<h1>Hello {user.name}</h1>
+<h1>Hello <span style="font-family: MoreSugar-Regular">{user.name}</span></h1>
 
-<ButtonEntry text="Log out" --color=orange
+<ButtonEntry
+  text="Log out"
+  --color="orange"
   clickHandler={async () => {
     await authClient.signOut({
       fetchOptions: {
@@ -29,10 +31,3 @@
     <EntryBackpad user={u} />
   {/each}
 </div>
-
-<style>
-  /* .EntryBackpad_block {
-    margin-top: 2rem;
-    border: 2px solid black;
-  } */
-</style>
