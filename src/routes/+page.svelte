@@ -14,3 +14,19 @@
 <a href="https://github.com/DougInAMug/backpad" style="margin-top: 1rem"
   >information & code</a
 >
+
+<style>
+  @font-face {
+    font-family: Atkinson;
+    src: url(/src/lib/assets/fonts/AtkinsonHyperlegibleNext-VariableFont_wght.ttf);
+  }
+  :global(h1) {
+    font-size: 3rem;
+  }
+  :global(h2) {
+    font-size: 1.7rem;
+  }
+  :global(*) {
+    font-family: Atkinson;
+  }
+</style>
