@@ -5,8 +5,8 @@
   let DisabledState = $state(true);
 </script>
 
-<form method="POST" action="?/EditBackpad">
-  <details>
+<form method="POST" action="?/EditBackpad" >
+  <details style="border-radius: 1rem; overflow:hidden">
     <summary>{user.name}</summary>
     <div style="padding: 0.5rem">
       <textarea
