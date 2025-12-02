@@ -1,4 +1,6 @@
 <script lang="ts">
+  import AutosizingTextarea from "./AutosizingTextarea.svelte";
+
   let { user } = $props();
   let LocalBackpad = $state(user.backpad);
   let EditInProgress = $state(false);
@@ -9,11 +11,12 @@
   <details style="border-radius: 1rem; overflow:hidden">
     <summary>{user.name}</summary>
     <div style="padding: 0.5rem">
-      <textarea
+      <!-- <textarea
         name="localBackpad"
         bind:value={LocalBackpad}
         disabled={DisabledState}
-      ></textarea>
+      ></textarea> -->
+      <AutosizingTextarea bind:value={LocalBackpad} state={DisabledState} />
       <div style="display: flex; flex-direction: row-reverse; gap: 0.5rem">
         {#if EditInProgress === false}
           <button
@@ -46,7 +49,8 @@
       url(/src/lib/assets/fonts/MoreSugar-Regular.otf);
   }
   details {
-    width: 60ch;
+    width: 100%;
+    max-width: 60ch;
     border: 3px solid black;
     margin-top: 1rem;
   }
@@ -61,6 +65,7 @@
   }
   textarea {
     width: 100%;
+    resize: none;
   }
   button {
     margin-top: 0.5rem;
