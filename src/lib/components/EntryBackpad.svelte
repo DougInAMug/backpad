@@ -11,7 +11,7 @@
   <details style="border-radius: 1rem; overflow:hidden">
     <summary>{user.name}</summary>
     <div style="padding: 0.5rem">
-      <AutosizingTextarea bind:value={LocalBackpad} state={DisabledState} />
+      <AutosizingTextarea bind:value={LocalBackpad} state={DisabledState} name="localBackpad" />
       <div style="display: flex; flex-direction: row-reverse; gap: 0.5rem">
         {#if EditInProgress === false}
           <button

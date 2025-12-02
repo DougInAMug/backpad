@@ -1,12 +1,12 @@
 <script lang="ts">
-    let { value = $bindable(), state } = $props();
+    let { value = $bindable(), state, name } = $props();
 </script>
 
 <!-- https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/ -->
 
 <div class="grow-wrap" data-replicated-value={value}>
   <textarea
-    name="text"
+    name={name}
     id="text"
     bind:value={value}
     oninput={(this.parentNode.dataset.replicatedValue = this.value)}
