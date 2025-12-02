@@ -7,5 +7,6 @@
 <style>
     h2 {
         margin-top: 1.5rem;
+        text-align: center;
     }
 </style>
