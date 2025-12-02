@@ -11,11 +11,6 @@
   <details style="border-radius: 1rem; overflow:hidden">
     <summary>{user.name}</summary>
     <div style="padding: 0.5rem">
-      <!-- <textarea
-        name="localBackpad"
-        bind:value={LocalBackpad}
-        disabled={DisabledState}
-      ></textarea> -->
       <AutosizingTextarea bind:value={LocalBackpad} state={DisabledState} />
       <div style="display: flex; flex-direction: row-reverse; gap: 0.5rem">
         {#if EditInProgress === false}
@@ -62,10 +57,6 @@
   }
   details:open summary {
     cursor: zoom-out;
-  }
-  textarea {
-    width: 100%;
-    resize: none;
   }
   button {
     margin-top: 0.5rem;

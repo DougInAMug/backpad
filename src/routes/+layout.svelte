@@ -13,17 +13,19 @@
 </main>
 
 <style>
-	:global(*) {
-		box-sizing: border-box;
-		margin: 0;
-	}
-	:global(a) {
-		cursor: pointer;
-	}
-	main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin: 3rem 1rem;
-	}
+  :global(*) {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  :global(a) {
+    cursor: pointer;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(lightblue, pink);
+    min-height: 100vh;
+  }
 </style>
