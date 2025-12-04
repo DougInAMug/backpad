@@ -1,8 +1,8 @@
+<!-- https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/ -->
+
 <script lang="ts">
     let { value = $bindable(), state, name } = $props();
 </script>
-
-<!-- https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/ -->
 
 <div class="grow-wrap" data-replicated-value={value}>
   <textarea
@@ -39,11 +39,18 @@
   .grow-wrap > textarea,
   .grow-wrap::after {
     /* Identical styling required!! */
-    border: 1px solid black;
+    border: 2px solid pink;
     padding: 0.5rem;
     font: inherit;
 
     /* Place on top of each other */
     grid-area: 1 / 1 / 2 / 2;
+  }
+  textarea {
+    background: white;
+    color: black
+  }
+  textarea:disabled {
+    border: 2px solid black
   }
 </style>
