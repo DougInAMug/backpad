@@ -1,52 +1,28 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import { authClient } from "$lib/auth-client";
+  import { enhance } from "$app/forms";
   import ButtonEntry from "$lib/components/ButtonEntry.svelte";
   import Subtitle from "$lib/components/Subtitle.svelte";
   import HomeTitle from "$lib/components/TitleHome.svelte";
+  import type { PageProps } from "./$types";
 
-  let email = $state("");
-  let name = $state("");
-  let password = $state("");
+  let { form }: PageProps = $props();
 </script>
 
 <HomeTitle />
 <Subtitle content={"Create account"} />
 
-<form>
+<form method="POST" action="?/createAccount" use:enhance>
   <label for="email">Email:</label>
-  <input type="email" name="email" bind:value={email} />
+  <input type="email" name="email" value={form?.rawEmail ?? ""} required />
+  {#if form?.createAccountError_email}{form.createAccountError_email}{/if}
   <label for="name">Name:</label>
-  <input type="text" name="name" bind:value={name} />
+  <input type="text" name="name" value={form?.rawName} required />
+  {#if form?.createAccountError_name}{form.createAccountError_name}{/if}
   <label for="password">Password:</label>
-  <input type="text" name="password" bind:value={password} />
-  <ButtonEntry
-    text="Create account"
-    --color="red"
-    clickHandler={async () => {
-      const { data, error } = await authClient.signUp.email(
-        {
-          email, // user email address
-          password, // user password -> min 8 characters by default
-          name, // user display name
-          callbackURL: "/blue", // A URL to redirect to after the user verifies their email (optional)
-        },
-        {
-          onRequest: (ctx) => {
-            //show loading
-          },
-          onSuccess: (ctx) => {
-            //redirect to the dashboard or sign in page
-            goto("/profile");
-          },
-          onError: (ctx) => {
-            // display the error message
-            alert(ctx.error.message);
-          },
-        }
-      );
-    }}
-  />
+  <input type="text" name="password" required />
+  {#if form?.createAccountError_password}{form.createAccountError_password}{/if}
+  <ButtonEntry text="Create account" --color="red" />
+  {#if form?.createAccountError_auth}{form.createAccountError_auth}{/if}
 </form>
 
 <style>
