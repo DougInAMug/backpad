@@ -1,47 +1,25 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import { authClient } from "$lib/auth-client";
+  import { enhance } from "$app/forms";
   import ButtonEntry from "$lib/components/ButtonEntry.svelte";
   import Subtitle from "$lib/components/Subtitle.svelte";
   import TitleHome from "$lib/components/TitleHome.svelte";
+  import type { PageProps } from "./$types";
 
-  let email = $state("");
-  let password = $state("");
+  let { form }: PageProps = $props();
 </script>
 
 <TitleHome />
 <Subtitle content={"Log in"} />
 
-<form>
+<form method="POST" action="?/logIn" use:enhance>
   <label for="email">Email:</label>
-  <input type="email" name="email" bind:value={email} />
+  <input type="email" name="email" value={form?.rawEmail ?? ""} />
+  {#if form?.logInError_email}{form.logInError_email}{/if}
   <label for="password">Password:</label>
-  <input type="text" name="password" bind:value={password} />
-  <ButtonEntry
-    text="Log in"
-    --color="lightblue"
-    clickHandler={async () => {
-      const { data, error } = await authClient.signIn.email(
-        {
-          email, // user email address
-          password, // user password -> min 8 characters by default
-        },
-        {
-          onRequest: (ctx) => {
-            //show loading
-          },
-          onSuccess: (ctx) => {
-            //redirect to the dashboard or sign in page
-            goto("/profile");
-          },
-          onError: (ctx) => {
-            // display the error message
-            alert(ctx.error.message);
-          },
-        }
-      );
-    }}
-  />
+  <input type="text" name="password" required />
+  {#if form?.logInError_password}{form.logInError_password}{/if}
+  <ButtonEntry text="Log in" --color="lightblue" />
+  {#if form?.logInError_auth}{form.logInError_auth}{/if}
 </form>
 
 <style>
