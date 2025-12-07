@@ -12,26 +12,52 @@
 <Subtitle content={"Create account"} />
 
 <form method="POST" action="?/createAccount" use:enhance>
-  <label for="email">Email:</label>
-  <input type="email" name="email" value={form?.rawEmail ?? ""} required />
-  {#if form?.createAccountError_email}{form.createAccountError_email}{/if}
-  <label for="name">Name:</label>
-  <input type="text" name="name" value={form?.rawName} required />
-  {#if form?.createAccountError_name}{form.createAccountError_name}{/if}
-  <label for="password">Password:</label>
-  <input type="text" name="password" required />
-  {#if form?.createAccountError_password}{form.createAccountError_password}{/if}
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" name="email" value={form?.rawEmail ?? ""} required />
+    {#if form?.createAccountError_email}
+      <p class="formerror">
+        {form.createAccountError_email}
+      </p>
+    {/if}
+  </div>
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" name="name" value={form?.rawName} required />
+    {#if form?.createAccountError_name}
+      <p class="formerror">
+        {form.createAccountError_name}
+      </p>
+    {/if}
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="text" name="password" required />
+    {#if form?.createAccountError_password}
+      <p class="formerror">
+        {form.createAccountError_password}
+      </p>
+    {/if}
+  </div>
   <ButtonEntry text="Create account" --color="red" />
-  {#if form?.createAccountError_auth}{form.createAccountError_auth}{/if}
+  {#if form?.createAccountError_auth}
+    <p class="formerror">
+      {form.createAccountError_auth}
+    </p>
+  {/if}
 </form>
 
 <style>
   form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 1rem;
+    width: 100%;
+    gap: 0.75rem;
   }
-  label {
-    margin-top: 0.75rem;
+  input {
+    display: block;
+    width: 50ch;
   }
 </style>

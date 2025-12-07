@@ -12,23 +12,43 @@
 <Subtitle content={"Log in"} />
 
 <form method="POST" action="?/logIn" use:enhance>
-  <label for="email">Email:</label>
-  <input type="email" name="email" value={form?.rawEmail ?? ""} />
-  {#if form?.logInError_email}{form.logInError_email}{/if}
-  <label for="password">Password:</label>
-  <input type="text" name="password" required />
-  {#if form?.logInError_password}{form.logInError_password}{/if}
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" name="email" value={form?.rawEmail ?? ""} />
+    {#if form?.logInError_email}
+      <p class="formerror">
+        {form.logInError_email}
+      </p>
+    {/if}
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="text" name="password" required />
+    {#if form?.logInError_password}
+      <p class="formerror">
+        {form.logInError_password}
+      </p>
+    {/if}
+  </div>
   <ButtonEntry text="Log in" --color="lightblue" />
-  {#if form?.logInError_auth}{form.logInError_auth}{/if}
+  {#if form?.logInError_auth}
+    <p class="formerror">
+      {form.logInError_auth}
+    </p>
+  {/if}
 </form>
 
 <style>
   form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 1rem;
+    width: 100%;
+    gap: 0.75rem;
   }
-  label {
-    margin-top: 0.75rem;
+  input {
+    display: block;
+    width: 50ch;
   }
 </style>

@@ -6,27 +6,14 @@
 
 <TitleHome />
 
-<Subtitle content={"your co-workers secret manual"} />
+<Subtitle content={"your collaborator's secret manual"} />
+
+<p style="margin-top: 1rem">Imagine you have a pad attached to your back. Your colleauges can read it and write on it — but you can't. Don't worry: they all have one too! 😅 </p>
 
 <ButtonEntry text="Log in" url="/logIn" --color="lightblue" />
 <ButtonEntry text="Create account" url="/createAccount" --color="red" />
 
-<a href="https://github.com/DougInAMug/backpad" style="margin-top: 1rem"
-  >information & code</a
->
-
-<style>
-  @font-face {
-    font-family: Atkinson;
-    src: url(/src/lib/assets/fonts/AtkinsonHyperlegibleNext-VariableFont_wght.ttf);
-  }
-  :global(h1) {
-    font-size: 3rem;
-  }
-  :global(h2) {
-    font-size: 1.7rem;
-  }
-  :global(*) {
-    font-family: Atkinson;
-  }
-</style>
+<p style="margin-top: 1rem">
+  <a href="https://enfascination.com/weblog/post/2506">inspiration</a> 🟆
+  <a href="https://github.com/DougInAMug/backpad">code</a>
+</p>

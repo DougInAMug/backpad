@@ -5,6 +5,7 @@
   let LocalBackpad = $state(user.backpad);
   let EditInProgress = $state(false);
   let DisabledState = $state(true);
+  let DeleteConfirmation = $state(false);
 </script>
 
 <form method="POST" action="?/EditBackpad">
@@ -33,7 +34,21 @@
           >
             Cancel</button
           >
-          <button name="id" value={user.id} type="submit" id=""> Save</button>
+          {#if LocalBackpad.length < user.backpad.length && !DeleteConfirmation}
+            <button
+              onclick={() => {
+                if (
+                  confirm(
+                    "It looks like you're deleting content. Click 'save' again if you are sure."
+                  )
+                ) {
+                  DeleteConfirmation = true;
+                }
+              }}>Save</button
+            >
+          {:else}
+            <button name="id" value={user.id} type="submit" id=""> Save</button>
+          {/if}
         {/if}
       </div>
     </div>
@@ -48,10 +63,9 @@
   }
   details {
     width: 100%;
-    max-width: 60ch;
     border: 3px solid black;
     margin-top: 1rem;
-    border-radius: 1rem 1rem 0 0 ;
+    border-radius: 1rem 1rem 0 0;
     overflow: hidden;
     background: whitesmoke;
   }

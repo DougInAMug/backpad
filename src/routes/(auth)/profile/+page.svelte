@@ -5,6 +5,7 @@
   import type { PageData, PageProps } from "./$types";
   import EntryBackpad from "$lib/components/EntryBackpad.svelte";
   import ButtonEntry from "$lib/components/ButtonEntry.svelte";
+  import Subtitle from "$lib/components/Subtitle.svelte";
 
   const { user } = page.data as PageData;
   let { data, form }: PageProps = $props();
@@ -30,6 +31,10 @@
     });
   }}
 />
+
+<Subtitle content="your collaborators' pads:" />
+
+<em>write as you would wish to be read!</em>
 
 <div class="EntryBackpad_block">
   {#each alphabeticUsers as u (u.id)}

@@ -40,7 +40,7 @@ export const actions = {
     } catch {
       return fail(400, {
         rawEmail,
-        logInError_auth: "unexpected authentication error",
+        logInError_auth: "Matching account not found.",
       });
     }
     redirect(302, "/profile");
