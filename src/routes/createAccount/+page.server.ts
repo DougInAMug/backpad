@@ -1,4 +1,5 @@
 import { auth } from "$lib/auth";
+import { V_Email, V_Name, V_Password } from "$lib/valibotSchemata";
 import { fail, redirect, type Actions } from "@sveltejs/kit";
 import * as v from "valibot";
 
@@ -14,31 +15,9 @@ export const actions = {
     let parsedName;
     let parsedPassword;
 
-    const validatingEmail = v.safeParse(
-      v.pipe(
-        v.string(),
-        v.nonEmpty("Please enter your email."),
-        v.email("The email is badly formatted."),
-        v.minLength(5, "Your email must have 5 characters or more.")
-      ),
-      rawEmail
-    );
-    const validatingName = v.safeParse(
-      v.pipe(
-        v.string(),
-        v.nonEmpty("Please enter your user name."),
-        v.minLength(3, "Your user name must have 3 characters or more.")
-      ),
-      rawName
-    );
-    const validatingPassword = v.safeParse(
-      v.pipe(
-        v.string(),
-        v.nonEmpty("Please enter your password."),
-        v.minLength(8, "Your password must have 8 characters or more.")
-      ),
-      rawPassword
-    );
+    const validatingEmail = v.safeParse(V_Email, rawEmail);
+    const validatingName = v.safeParse(V_Name, rawName);
+    const validatingPassword = v.safeParse(V_Password, rawPassword);
 
     if (
       validatingEmail.success &&
