@@ -14,7 +14,7 @@
 <form method="POST" action="?/createAccount" use:enhance>
   <div>
     <label for="email">Email:</label>
-    <input type="email" name="email" value={form?.rawEmail ?? ""} required />
+    <input type="email" name="email" value={form?.rawEmail ?? ""} />
     {#if form?.createAccountError_email}
       <p class="formerror">
         {form.createAccountError_email}
@@ -23,7 +23,7 @@
   </div>
   <div>
     <label for="name">Name:</label>
-    <input type="text" name="name" value={form?.rawName} required />
+    <input type="text" name="name" value={form?.rawName ?? ""} />
     {#if form?.createAccountError_name}
       <p class="formerror">
         {form.createAccountError_name}
@@ -32,7 +32,7 @@
   </div>
   <div>
     <label for="password">Password:</label>
-    <input type="text" name="password" required />
+    <input type="text" name="password" />
     {#if form?.createAccountError_password}
       <p class="formerror">
         {form.createAccountError_password}
@@ -55,9 +55,5 @@
     margin-top: 1rem;
     width: 100%;
     gap: 0.75rem;
-  }
-  input {
-    display: block;
-    width: 50ch;
   }
 </style>

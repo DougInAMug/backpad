@@ -24,11 +24,11 @@
   button {
     width: 12rem;
     padding: 0.5rem;
-    font-weight: bold;
-    font-size: 1rem;
     border-radius: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
     background-color: var(--color);
-    cursor: pointer
   }
   button:hover {
     background-color: color-mix(in srgb, var(--color) 50%, transparent);

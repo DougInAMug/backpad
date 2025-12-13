@@ -18,39 +18,50 @@
     src: url(/src/lib/assets/fonts/AtkinsonHyperlegibleNext-VariableFont_wght.ttf);
   }
   :global(*) {
-    font-family: Atkinson;
     box-sizing: border-box;
     margin: 0;
+    font-family: Atkinson;
   }
   :global(body) {
-    background: linear-gradient(lightblue, pink);
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: linear-gradient(lightblue, pink);
   }
   :global(h1) {
-    font-size: 3rem;
     text-align: center;
+    font-size: 2.7rem;
   }
   :global(h2) {
-    font-size: 1.7rem;
     text-align: center;
-    margin-top: 1.5rem
+    margin-top: 1.5rem;
+    font-size: 1.7rem;
+  }
+  :global(p) {
+    margin-top: 1rem;
+    font-size: 1.2rem;
   }
   :global(a) {
     cursor: pointer;
   }
   :global(.formerror) {
+    margin: 0;
     font-weight: bold;
     color: darkred;
+  }
+  :global(input) {
+    display: block;
+    width: 50ch;
+    max-width: 90vw;
+    padding: 0.25rem;
   }
   main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 1rem;
-    min-height: 100vh;
     width: 100%;
-    max-width: 60ch;
+    max-width: 50ch;
+    min-height: 100vh;
+    padding: 3rem 1rem;
   }
 </style>

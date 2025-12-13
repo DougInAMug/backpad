@@ -39,7 +39,7 @@
   .grow-wrap > textarea,
   .grow-wrap::after {
     /* Identical styling required!! */
-    border: 2px solid pink;
+    border: 2px solid black;
     padding: 0.5rem;
     font: inherit;
 
@@ -51,6 +51,6 @@
     color: black
   }
   textarea:disabled {
-    border: 2px solid black
+    border: 2px solid lightgray
   }
 </style>

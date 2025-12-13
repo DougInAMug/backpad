@@ -5,7 +5,6 @@
   import type { PageData, PageProps } from "./$types";
   import EntryBackpad from "$lib/components/EntryBackpad.svelte";
   import ButtonEntry from "$lib/components/ButtonEntry.svelte";
-  import Subtitle from "$lib/components/Subtitle.svelte";
 
   const { user } = page.data as PageData;
   let { data, form }: PageProps = $props();

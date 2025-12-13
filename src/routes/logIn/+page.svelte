@@ -23,7 +23,7 @@
   </div>
   <div>
     <label for="password">Password:</label>
-    <input type="text" name="password" required />
+    <input type="text" name="password" />
     {#if form?.logInError_password}
       <p class="formerror">
         {form.logInError_password}
@@ -46,9 +46,5 @@
     margin-top: 1rem;
     width: 100%;
     gap: 0.75rem;
-  }
-  input {
-    display: block;
-    width: 50ch;
   }
 </style>
