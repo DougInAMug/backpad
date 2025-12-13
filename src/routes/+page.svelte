@@ -5,7 +5,7 @@
 
 <TitleHome />
 
-<h2>your collaborator's secret manual</h2>
+<h2>Your collaborator's secret manual</h2>
 
 <p>
   Imagine you have a pad attached to your back. Your colleauges can read it and
