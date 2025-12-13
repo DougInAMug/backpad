@@ -45,7 +45,7 @@ git clone git@github.com:DougInAMug/backpad.git
 pnpx sv create . # all defaults: minimal, TS, no add-ons
 
 # prisma ORM setup
-# hhttps://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgresql
+# https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgresql
 service postgresql status # check postgres running
 pnpm i prisma --save-dev
 pnpx prisma init --datasource-provider postgresql --output ../node_modules/@prisma-generated/client # https://github.com/prisma/prisma/discussions/20200#discussioncomment-7441241
@@ -71,4 +71,4 @@ pnpm add better-auth
     - [x] SELECT backpad FROM every user whose id != id of logged-in user
     - [x] display backpads as list. (See [details](https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/))
 - [x] Make backpads editable. [Form actions](https://svelte.dev/docs/kit/form-actions).
-- [ ] Make it prettier
+- [x] Make it prettier
