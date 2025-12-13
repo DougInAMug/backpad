@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { enhance } from "$app/forms";
   import AutosizingTextarea from "./AutosizingTextarea.svelte";
 
   let { user } = $props();
@@ -8,16 +9,28 @@
   let DeleteConfirmation = $state(false);
 </script>
 
-<form method="POST" action="?/EditBackpad">
+<form
+  method="POST"
+  action="?/EditBackpad"
+  use:enhance={() => {
+    EditInProgress = true;
+
+    return async ({ update }) => {
+      await update({ reset: false, invalidateAll: true });
+      EditInProgress = false;
+      DisabledState = true;
+    };
+  }}
+>
   <details>
     <summary>{user.name}</summary>
-    <div style="padding: 0.5rem">
+    <div class="details_content">
       <AutosizingTextarea
         bind:value={LocalBackpad}
         state={DisabledState}
         name="localBackpad"
       />
-      <div style="display: flex; flex-direction: row-reverse; gap: 0.5rem;">
+      <div class="button_bar">
         {#if EditInProgress === false}
           <button
             onclick={() => ((EditInProgress = true), (DisabledState = false))}
@@ -47,7 +60,7 @@
               }}>Save</button
             >
           {:else}
-            <button name="id" value={user.id} type="submit" id=""> Save</button>
+            <button name="id" value={user.id} type="submit"> Save </button>
           {/if}
         {/if}
       </div>
@@ -62,11 +75,10 @@
       url(/src/lib/assets/fonts/MoreSugar-Regular.otf);
   }
   details {
-    width: 100%;
-    border: 3px solid black;
-    margin-top: 1rem;
-    border-radius: 1rem 1rem 0 0;
     overflow: hidden;
+    border: 3px solid black;
+    border-radius: 1rem 1rem 0 0;
+    margin-top: 1rem;
     background: whitesmoke;
   }
   details:open {
@@ -74,8 +86,9 @@
   }
   summary {
     padding: 0.5rem;
-    font-family: MoreSugar-Regular;
+    font-size: 1.2rem;
     cursor: zoom-in;
+    font-family: MoreSugar-Regular;
     background: rgb(224, 224, 224);
   }
   details:open summary {
@@ -83,5 +96,13 @@
   }
   button {
     margin-top: 0.5rem;
+  }
+  .button_bar {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.5rem;
+  }
+  .details_content {
+    padding: 0.5rem;
   }
 </style>
