@@ -30,9 +30,12 @@
   }
   :global(h1) {
     font-size: 3rem;
+    text-align: center;
   }
   :global(h2) {
     font-size: 1.7rem;
+    text-align: center;
+    margin-top: 1.5rem
   }
   :global(a) {
     cursor: pointer;

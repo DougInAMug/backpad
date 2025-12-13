@@ -32,7 +32,7 @@
   }}
 />
 
-<Subtitle content="your collaborators' pads:" />
+<h2>your collaborators' pads:</h2>
 
 <em>write as you would wish to be read!</em>
 

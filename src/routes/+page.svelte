@@ -1,12 +1,11 @@
 <script lang="ts">
   import ButtonEntry from "$lib/components/ButtonEntry.svelte";
-  import Subtitle from "$lib/components/Subtitle.svelte";
   import TitleHome from "$lib/components/TitleHome.svelte";
 </script>
 
 <TitleHome />
 
-<Subtitle content={"your collaborator's secret manual"} />
+<h2>your collaborator's secret manual</h2>
 
 <p style="margin-top: 1rem">Imagine you have a pad attached to your back. Your colleauges can read it and write on it — but you can't. Don't worry: they all have one too! 😅 </p>
 

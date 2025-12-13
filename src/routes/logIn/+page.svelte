@@ -1,7 +1,6 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
   import ButtonEntry from "$lib/components/ButtonEntry.svelte";
-  import Subtitle from "$lib/components/Subtitle.svelte";
   import TitleHome from "$lib/components/TitleHome.svelte";
   import type { PageProps } from "./$types";
 
@@ -9,7 +8,8 @@
 </script>
 
 <TitleHome />
-<Subtitle content={"Log in"} />
+
+<h2>Log in</h2>
 
 <form method="POST" action="?/logIn" use:enhance>
   <div>
