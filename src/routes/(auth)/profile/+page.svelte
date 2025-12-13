@@ -31,9 +31,9 @@
   }}
 />
 
-<h2>your collaborators' pads:</h2>
+<h2>Your collaborators' pads:</h2>
 
-<em>write as you would wish to be read!</em>
+<em>(Write as you would wish to be read!)</em>
 
 <div class="EntryBackpad_block">
   {#each alphabeticUsers as u (u.id)}
@@ -44,6 +44,5 @@
 <style>
   .EntryBackpad_block {
     width: 100%;
-    max-width: 60ch;
   }
 </style>
