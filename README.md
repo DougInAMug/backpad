@@ -3,7 +3,7 @@ Imagine a **pad attached to your back** that your colleauges could read and writ
 
 This would allow your colleagues to communicate your special features to new people, saving them from finding out the hard way. It could show up [missing stairs](https://en.wikipedia.org/wiki/Missing_stair) possibly bringing serious issues to resolution. Perhaps it enables new forms of bullying?
 
-This idea comes from Seth Frey's [“Why can’t I work with this person?”: Your collaborator’s secret manual](https://enfascination.com/weblog/post/2506) and is mostly focussed on implementing the key feature without bigtech tooling.
+This idea comes from Seth Frey's [“Why can’t I work with this person?”: Your collaborator’s secret manual](https://enfascination.com/weblog/post/2506) and is mostly focussed on implementing the key feature without bigtech tooling. The aim of this exercise is the exercise itself (i.e. more-or-less moder, fullstack web-app) - _not_ intended for actual use.
 
 ## Outline
 * **v1**
@@ -18,7 +18,6 @@ This idea comes from Seth Frey's [“Why can’t I work with this person?”: Yo
     * basic in-app onboarding
     * a comprehensive design
 
-
 ## Tech
 * [Svelte & SvelteKit](https://svelte.dev/) - front & backend framework
 * [Valibot](https://valibot.dev/) - data validation library
@@ -31,8 +30,8 @@ This idea comes from Seth Frey's [“Why can’t I work with this person?”: Yo
 ```bash
 pnpm i
 # adapt `.env.example` and rename `.env`
-pnpx prisma migrate dev --name init
-pnpx prisma generate
+pnpx prisma@6 migrate dev --name init # issue with prisma 7 https://github.com/prisma/prisma/issues/28581
+pnpx prisma@6 generate 
 ```
 
 ## Steps I took to set up
