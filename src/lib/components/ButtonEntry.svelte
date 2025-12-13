@@ -3,18 +3,31 @@
     clickHandler?: Function;
     url?: string;
     text: string;
+    disabled?: boolean;
   };
-  let { clickHandler, text, url }: T_EntryButton = $props();
+  let { clickHandler, text, url, disabled }: T_EntryButton = $props();
 </script>
 
 {#if clickHandler}
   <div class="buttonContainer">
-    <button onclick={() => clickHandler()}>{text}</button>
+    <button onclick={() => clickHandler()} disabled={disabled}>
+      {text}
+    </button>
   </div>
 {:else if url}
-  <div class="buttonContainer"><a href={url}><button>{text}</button></a></div>
+  <div class="buttonContainer">
+    <a href={url}>
+      <button disabled={disabled}>
+        {text}
+      </button>
+    </a>
+  </div>
 {:else}
-  <div class="buttonContainer"><button>{text}</button></div>
+  <div class="buttonContainer">
+    <button disabled={disabled}>
+      {text}
+    </button>
+  </div>
 {/if}
 
 <style>
@@ -30,7 +43,8 @@
     cursor: pointer;
     background-color: var(--color);
   }
-  button:hover {
+  button:hover,
+  button:disabled {
     background-color: color-mix(in srgb, var(--color) 50%, transparent);
   }
 </style>

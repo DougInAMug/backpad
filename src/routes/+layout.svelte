@@ -41,6 +41,9 @@
     margin-top: 1rem;
     font-size: 1.2rem;
   }
+  :global(label) {
+    font-size: 1.2rem;
+  }
   :global(a) {
     cursor: pointer;
   }

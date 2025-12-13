@@ -5,7 +5,10 @@ import * as v from "valibot";
 
 export const actions = {
   EditBackpad: async ({ request }) => {
-    		await new Promise((fulfil) => setTimeout(fulfil, 1000));
+    await new Promise((fulfil) =>
+      setTimeout(fulfil, Math.random() * 500 + 250)
+    );
+
     const rawFormData = await request.formData();
 
     const rawId = rawFormData.get("id");

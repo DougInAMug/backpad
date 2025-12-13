@@ -5,13 +5,26 @@
   import type { PageProps } from "./$types";
 
   let { form }: PageProps = $props();
+
+  let loggingIn = $state(false);
 </script>
 
 <TitleHome />
 
 <h2>Log in</h2>
 
-<form method="POST" action="?/logIn" use:enhance>
+<form
+  method="POST"
+  action="?/logIn"
+  use:enhance={() => {
+    loggingIn = true;
+
+    return async ({ update }) => {
+      await update({ reset: false, invalidateAll: true });
+      loggingIn = false;
+    };
+  }}
+>
   <div>
     <label for="email">Email:</label>
     <input type="email" name="email" value={form?.rawEmail ?? ""} />
@@ -30,7 +43,7 @@
       </p>
     {/if}
   </div>
-  <ButtonEntry text="Log in" --color="lightblue" />
+  <ButtonEntry text="Log in" --color="lightblue" disabled={loggingIn} />
   {#if form?.logInError_auth}
     <p class="formerror">
       {form.logInError_auth}

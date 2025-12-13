@@ -5,6 +5,10 @@ import * as v from "valibot";
 
 export const actions = {
   logIn: async ({ request }) => {
+    await new Promise((fulfil) =>
+      setTimeout(fulfil, Math.random() * 500 + 250)
+    );
+
     const rawFormData = await request.formData();
 
     const rawEmail = rawFormData.get("email");
@@ -16,10 +20,7 @@ export const actions = {
     const validatingEmail = v.safeParse(V_Email, rawEmail);
     const validatingPassword = v.safeParse(V_Password, rawPassword);
 
-    if (
-      validatingEmail.success &&
-      validatingPassword.success
-    ) {
+    if (validatingEmail.success && validatingPassword.success) {
       parsedEmail = validatingEmail.output;
       parsedPassword = validatingPassword.output;
     } else {
