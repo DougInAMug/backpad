@@ -1,14 +1,14 @@
 <!-- https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/ -->
 
 <script lang="ts">
-    let { value = $bindable(), state, name } = $props();
+  let { value = $bindable(), state, name } = $props();
 </script>
 
 <div class="grow-wrap" data-replicated-value={value}>
   <textarea
-    name={name}
+    {name}
     id="text"
-    bind:value={value}
+    bind:value
     oninput={(this.parentNode.dataset.replicatedValue = this.value)}
     disabled={state}
   ></textarea>
@@ -48,9 +48,10 @@
   }
   textarea {
     background: white;
-    color: black
+    color: black;
   }
   textarea:disabled {
-    border: 2px solid lightgray
+    border: 2px solid lightgray;
+    background: whitesmoke;
   }
 </style>

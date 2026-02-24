@@ -7,19 +7,31 @@
   import ButtonEntry from "$lib/components/ButtonEntry.svelte";
 
   const { user } = page.data as PageData;
-  let { data, form }: PageProps = $props();
+  let { data }: PageProps = $props();
   let alphabeticUsers = $derived(
     data.allUsersMinusCurrent.sort(function (a, b) {
       return a.name.localeCompare(b.name);
-    })
+    }),
   );
 </script>
 
-<h1>Hello <span style="font-family: MoreSugar-Regular">{user.name}</span></h1>
+<h1>
+  Hello <span style="font-family: MoreSugar-Regular">{user.name}</span> 👋
+</h1>
+
+<h2>Your collaborators' pads:</h2>
+
+<div class="EntryBackpad_block">
+  {#each alphabeticUsers as u (u.id)}
+    <EntryBackpad user={u} />
+  {/each}
+</div>
+
+<p><em>(Write as you would wish to be read!)</em></p>
 
 <ButtonEntry
   text="Log out"
-  --color="orange"
+  --color="var(--log-out-color)"
   clickHandler={async () => {
     await authClient.signOut({
       fetchOptions: {
@@ -31,18 +43,9 @@
   }}
 />
 
-<h2>Your collaborators' pads:</h2>
-
-<em>(Write as you would wish to be read!)</em>
-
-<div class="EntryBackpad_block">
-  {#each alphabeticUsers as u (u.id)}
-    <EntryBackpad user={u} />
-  {/each}
-</div>
-
 <style>
   .EntryBackpad_block {
     width: 100%;
+    margin-top: 1rem;
   }
 </style>

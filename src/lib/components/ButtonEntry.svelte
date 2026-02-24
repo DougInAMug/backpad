@@ -9,39 +9,30 @@
 </script>
 
 {#if clickHandler}
-  <div class="buttonContainer">
-    <button onclick={() => clickHandler()} disabled={disabled}>
-      {text}
-    </button>
-  </div>
+  <button onclick={() => clickHandler()} {disabled}>
+    {text}
+  </button>
 {:else if url}
-  <div class="buttonContainer">
-    <a href={url}>
-      <button disabled={disabled}>
-        {text}
-      </button>
-    </a>
-  </div>
-{:else}
-  <div class="buttonContainer">
-    <button disabled={disabled}>
+  <a href={url}>
+    <button {disabled}>
       {text}
     </button>
-  </div>
+  </a>
+{:else}
+  <button {disabled}>
+    {text}
+  </button>
 {/if}
 
 <style>
-  .buttonContainer {
-    margin-top: 1.5rem;
-  }
   button {
     width: 12rem;
     padding: 0.5rem;
+    margin-top: var(--margin-top, 1.5rem);
     border: 3px black solid;
     border-radius: 0;
     font-size: 1.2rem;
     font-weight: bold;
-    cursor: pointer;
     background-color: var(--color);
   }
   button:hover,

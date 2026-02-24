@@ -44,7 +44,7 @@
   :global(label) {
     font-size: 1.2rem;
   }
-  :global(a) {
+  :global(button) {
     cursor: pointer;
   }
   :global(.formerror) {
@@ -54,16 +54,20 @@
   }
   :global(input) {
     display: block;
-    width: 50ch;
-    max-width: 90vw;
     padding: 0.25rem;
+    width: 100%;
+  }
+  :root {
+    --create-account-color: deepskyblue;
+    --log-in-color: mediumspringgreen;
+    --log-out-color: coral;
   }
   main {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 50ch;
+    max-width: 45ch;
     min-height: 100vh;
     padding: 3rem 1rem;
   }

@@ -43,7 +43,13 @@
       </p>
     {/if}
   </div>
-  <ButtonEntry text="Log in" --color="lightblue" disabled={loggingIn} />
+
+  <ButtonEntry
+    text="Log in"
+    --color="var(--log-in-color)"
+    disabled={loggingIn}
+  />
+
   {#if form?.logInError_auth}
     <p class="formerror">
       {form.logInError_auth}
@@ -57,7 +63,11 @@
     flex-direction: column;
     align-items: center;
     margin-top: 1rem;
-    width: 100%;
+    width: 25ch;
     gap: 0.75rem;
+  }
+  div,
+  input {
+    width: 100%;
   }
 </style>

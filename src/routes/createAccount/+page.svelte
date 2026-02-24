@@ -52,7 +52,13 @@
       </p>
     {/if}
   </div>
-  <ButtonEntry text="Create account" --color="red" disabled={creatingAccount}/>
+
+  <ButtonEntry
+    text="Create account"
+    --color="var(--create-account-color)"
+    disabled={creatingAccount}
+  />
+  
   {#if form?.createAccountError_auth}
     <p class="formerror">
       {form.createAccountError_auth}
@@ -66,7 +72,10 @@
     flex-direction: column;
     align-items: center;
     margin-top: 1rem;
-    width: 100%;
+    width: 25ch;
     gap: 0.75rem;
+  }
+  div, input {
+    width: 100%;
   }
 </style>
