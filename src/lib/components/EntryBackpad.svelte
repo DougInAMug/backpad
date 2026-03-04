@@ -38,7 +38,7 @@
         for="{user.name}-text"
         style="
           font-size: 1.2rem;
-          font-family: MoreSugar-Regular;
+          font-family: MoreSugar-Regular, cursive;
           pointer-events: none;
         "
       >

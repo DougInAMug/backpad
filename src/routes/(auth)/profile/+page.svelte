@@ -19,7 +19,7 @@
   Hello
   <span
     style="
-    font-family: MoreSugar-Regular; 
+    font-family: MoreSugar-Regular, cursive; 
     vertical-align: bottom;
     "
   >

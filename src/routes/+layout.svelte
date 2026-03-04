@@ -16,17 +16,18 @@
 <style>
   @font-face {
     font-family: Atkinson;
-    src: url(/src/lib/assets/fonts/AtkinsonHyperlegibleNext-VariableFont_wght.ttf);
+    src: local("Atkinson Hyperlegible"),
+      url(/src/lib/assets/fonts/AtkinsonHyperlegibleNext-VariableFont_wght.ttf);
   }
   @font-face {
-    font-family: "MoreSugar-Regular";
+    font-family: MoreSugar-Regular;
     src: local("MoreSugar-Regular"),
       url(/src/lib/assets/fonts/MoreSugar-Regular.otf);
   }
   :global(*) {
     box-sizing: border-box;
     margin: 0;
-    font-family: Atkinson;
+    font-family: Atkinson, sans-serif;
   }
   :global(body) {
     display: flex;
@@ -64,7 +65,7 @@
     width: 100%;
   }
   :global(.w100) {
-    width: 100%
+    width: 100%;
   }
   :root {
     --create-account-color: deepskyblue;
