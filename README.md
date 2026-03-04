@@ -11,26 +11,9 @@ This project is a playful implementation of the ideas and prototype described in
 
 Docs were read, IDE hints were heeded, no generative AI was used.
 
-## Outline
-* **v1.1**
-    * error handling in forms (back to inputs)
-    * warning if deleting in backpad
-    * basic in-app onboarding
-    * a comprehensive design
-* **v1**
-    * users create account
-    * all users considered part of same group
-    * users can:
-        * see all other users
-        * read and write on the pad every other user has
+## Demo
 
-## Tech
-* [Svelte & SvelteKit](https://svelte.dev/) - front & backend framework
-* [Valibot](https://valibot.dev/) - data validation library
-* [Better-auth](https://www.better-auth.com) - authentication library
-* [Prisma](https://www.prisma.io/orm) - object relational mapper
-* PostgreSQL - relational database management system
-* node, typescript, vite...
+https://github.com/user-attachments/assets/d05c5de2-8b9c-4da0-957f-7f5824a4f0c4
 
 ## Setup
 ```bash
@@ -39,6 +22,14 @@ pnpm i
 pnpx prisma@6 migrate dev --name init # issue with prisma 7 https://github.com/prisma/prisma/issues/28581
 pnpx prisma@6 generate 
 ```
+
+## Tech
+* [Svelte & SvelteKit](https://svelte.dev/) - front & backend framework
+* [Valibot](https://valibot.dev/) - data validation library
+* [Better-auth](https://www.better-auth.com) - authentication library
+* [Prisma](https://www.prisma.io/orm) - object relational mapper
+* PostgreSQL - relational database management system
+* node, typescript, vite...
 
 ## Steps I took to set up
 ```bash
@@ -65,15 +56,3 @@ pnpx prisma generate
 # https://www.better-auth.com/docs/installation
 pnpm add better-auth
 ```
-
-# Todo
-- [x] Make wireframes
-    - Done on [Penpot](https://design.penpot.app/#/workspace?team-id=2a21f5ae-60ee-8151-8001-f7f599a9b6fe&file-id=20e128ff-6495-80ff-8007-11f639c8af4f&page-id=20e128ff-6495-80ff-8007-11f639c8af50)
-- [x] Setup better-auth
-- [x] Create sign-up, log-in, log-out flows
-- [x] Adapt `User` data model from better-auth to contain `backpad`
-- [x] Create view of backpads
-    - [x] SELECT backpad FROM every user whose id != id of logged-in user
-    - [x] display backpads as list. (See [details](https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/))
-- [x] Make backpads editable. [Form actions](https://svelte.dev/docs/kit/form-actions).
-- [x] Make it prettier
