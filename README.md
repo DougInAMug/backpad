@@ -17,10 +17,12 @@ https://github.com/user-attachments/assets/d05c5de2-8b9c-4da0-957f-7f5824a4f0c4
 
 ## Setup
 ```bash
+git clone https://github.com/DougInAMug/backpad.git && cd backpad
 pnpm i
-# adapt `.env.example` and rename `.env`
+# adapt `.env.example` and rename to `.env`
 pnpx prisma@6 migrate dev --name init # issue with prisma 7 https://github.com/prisma/prisma/issues/28581
-pnpx prisma@6 generate 
+pnpx prisma@6 generate
+pnpm run dev
 ```
 
 ## Tech
