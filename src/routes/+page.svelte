@@ -8,8 +8,8 @@
 <h2>Your collaborator's secret manual</h2>
 
 <p style="text-align: center;">
-  Imagine you have a pad attached to your back that your colleagues can edit and
-  read — but you can't!
+  Imagine you have a pad attached to your back that your colleagues can write on
+  and read — but you can't!
 </p>
 <p>Don't worry: they all have one too.</p>
 

@@ -1,22 +1,28 @@
-# backpad
-Imagine a **pad attached to your back** that your colleauges could read and write, but you can't 🗒️ Don't worry: they all have one too! 😅
+# Backpad 🗒️
+> Imagine you have a pad attached to your back that your colleagues can write on and read — but you can't!
+> 
+> Don't worry: they all have one too.
 
-This would allow your colleagues to communicate your special features to new people, saving them from finding out the hard way. It could show up [missing stairs](https://en.wikipedia.org/wiki/Missing_stair) possibly bringing serious issues to resolution. Perhaps it enables new forms of bullying?
+Backpad brings this imaginary to life by automatically creating a pad for each user to which they have _no_ read or write access, but which every other user _does_. While people can and do create private channels to this end with whatever tools are at hand, doing so comes with technical and social barriers.
 
-This idea comes from Seth Frey's [“Why can’t I work with this person?”: Your collaborator’s secret manual](https://enfascination.com/weblog/post/2506) and is mostly focussed on implementing the key feature without bigtech tooling. The aim of this exercise is the exercise itself (i.e. more-or-less moder, fullstack web-app) - _not_ intended for actual use.
+A tool like Backpad can facilitate prosocial behavior: organizing a surprise party, explaining some "special feature" of theirs... exposing [missing stairs](https://en.wikipedia.org/wiki/Missing_stair). Of course, knowing that other people may not just talking about you, but possibly _writing things down_ changes the social fabric of a group and may enable antisocial behaviors...
+
+This project is a playful implementation of the ideas and prototype described in Seth Frey's [“Why can’t I work with this person?”: Your collaborator’s secret manual](https://enfascination.com/weblog/post/2506). My aim was to exercise my development skills to the test. It is _not_ intended for actual due to known technical deficiencies and unknown social side-effects!
+
+Docs were read, IDE hints were heeded, no generative AI was used.
 
 ## Outline
+* **v1.1**
+    * error handling in forms (back to inputs)
+    * warning if deleting in backpad
+    * basic in-app onboarding
+    * a comprehensive design
 * **v1**
     * users create account
     * all users considered part of same group
     * users can:
         * see all other users
         * read and write on the pad every other user has
-* **v1.1**
-    * error handling in forms (back to inputs)
-    * warning if deleting in backpad
-    * basic in-app onboarding
-    * a comprehensive design
 
 ## Tech
 * [Svelte & SvelteKit](https://svelte.dev/) - front & backend framework
