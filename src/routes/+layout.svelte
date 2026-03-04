@@ -6,6 +6,7 @@
 
 <svelte:head>
   <link rel="icon" href={favicon} />
+  <title>Backpad - Your collaborator's secret manual</title>
 </svelte:head>
 
 <main>
@@ -16,6 +17,11 @@
   @font-face {
     font-family: Atkinson;
     src: url(/src/lib/assets/fonts/AtkinsonHyperlegibleNext-VariableFont_wght.ttf);
+  }
+  @font-face {
+    font-family: "MoreSugar-Regular";
+    src: local("MoreSugar-Regular"),
+      url(/src/lib/assets/fonts/MoreSugar-Regular.otf);
   }
   :global(*) {
     box-sizing: border-box;
@@ -56,6 +62,9 @@
     display: block;
     padding: 0.25rem;
     width: 100%;
+  }
+  :global(.w100) {
+    width: 100%
   }
   :root {
     --create-account-color: deepskyblue;

@@ -27,7 +27,7 @@
 >
   <div>
     <label for="email">Email:</label>
-    <input type="email" name="email" value={form?.rawEmail ?? ""} />
+    <input type="email" name="email" id="email" value={form?.rawEmail ?? ""} />
     {#if form?.createAccountError_email}
       <p class="formerror">
         {form.createAccountError_email}
@@ -36,7 +36,7 @@
   </div>
   <div>
     <label for="name">Name:</label>
-    <input type="text" name="name" value={form?.rawName ?? ""} />
+    <input type="text" name="name" id="name" value={form?.rawName ?? ""} />
     {#if form?.createAccountError_name}
       <p class="formerror">
         {form.createAccountError_name}
@@ -45,7 +45,7 @@
   </div>
   <div>
     <label for="password">Password:</label>
-    <input type="text" name="password" />
+    <input type="text" name="password" id="password" />
     {#if form?.createAccountError_password}
       <p class="formerror">
         {form.createAccountError_password}
@@ -58,7 +58,7 @@
     --color="var(--create-account-color)"
     disabled={creatingAccount}
   />
-  
+
   {#if form?.createAccountError_auth}
     <p class="formerror">
       {form.createAccountError_auth}
@@ -75,7 +75,8 @@
     width: 25ch;
     gap: 0.75rem;
   }
-  div, input {
+  div,
+  input {
     width: 100%;
   }
 </style>

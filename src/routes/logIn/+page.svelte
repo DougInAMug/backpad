@@ -27,7 +27,7 @@
 >
   <div>
     <label for="email">Email:</label>
-    <input type="email" name="email" value={form?.rawEmail ?? ""} />
+    <input type="email" name="email" id="email" value={form?.rawEmail ?? ""} />
     {#if form?.logInError_email}
       <p class="formerror">
         {form.logInError_email}
@@ -36,7 +36,7 @@
   </div>
   <div>
     <label for="password">Password:</label>
-    <input type="text" name="password" />
+    <input type="text" name="password" id="password" />
     {#if form?.logInError_password}
       <p class="formerror">
         {form.logInError_password}

@@ -16,12 +16,21 @@
 </script>
 
 <h1>
-  Hello <span style="font-family: MoreSugar-Regular">{user.name}</span> 👋
+  Hello
+  <span
+    style="
+    font-family: MoreSugar-Regular; 
+    vertical-align: bottom;
+    "
+  >
+    {user.name}
+  </span>
+  👋
 </h1>
 
 <h2>Your collaborators' pads:</h2>
 
-<div class="EntryBackpad_block">
+<div style="width: 100%; margin-top: 1rem">
   {#each alphabeticUsers as u (u.id)}
     <EntryBackpad user={u} />
   {/each}
@@ -42,10 +51,3 @@
     });
   }}
 />
-
-<style>
-  .EntryBackpad_block {
-    width: 100%;
-    margin-top: 1rem;
-  }
-</style>

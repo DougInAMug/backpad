@@ -6,31 +6,59 @@
   let LocalBackpad = $state(user.backpad);
   let EditInProgress = $state(false);
   let DisabledState = $state(true);
-  let DeleteConfirmation = $state(false);
+  let NetDeletion = $state(true);
 </script>
 
 <form
   method="POST"
   action="?/EditBackpad"
-  use:enhance={() => {
+  use:enhance={({ cancel }) => {
     EditInProgress = true;
 
-    return async ({ update }) => {
-      await update({ reset: false, invalidateAll: true });
-      EditInProgress = false;
-      DisabledState = true;
-    };
+    if (NetDeletion == true) {
+      return async ({ update }) => {
+        await update({ reset: false, invalidateAll: true });
+        EditInProgress = false;
+        DisabledState = true;
+      };
+    } else {
+      cancel();
+      NetDeletion = true;
+    }
   }}
 >
   <details>
-    <summary>{user.name}</summary>
-    <div class="details_content">
+    <summary
+      style="
+        padding: 0.5rem;
+        background: rgb(224, 224, 224);
+      "
+    >
+      <label
+        for="{user.name}-text"
+        style="
+          font-size: 1.2rem;
+          font-family: MoreSugar-Regular;
+          pointer-events: none;
+        "
+      >
+        {user.name}
+      </label>
+    </summary>
+    <div id="{user.name}-text" style="padding: 0.5rem">
       <AutosizingTextarea
         bind:value={LocalBackpad}
         state={DisabledState}
         name="localBackpad"
+        id="{user.name}-text"
       />
-      <div class="button_bar">
+      <div
+        style="
+          display: flex; 
+          flex-direction: row-reverse; 
+          gap: 0.5rem;
+        "
+      >
         {#if EditInProgress === false}
           <button
             onclick={() => ((EditInProgress = true), (DisabledState = false))}
@@ -47,21 +75,25 @@
           >
             Cancel</button
           >
-          {#if LocalBackpad.length < user.backpad.length && !DeleteConfirmation}
-            <button
-              onclick={() => {
+          <button
+            name="id"
+            value={user.id}
+            type="submit"
+            onclick={() => {
+              if (LocalBackpad.length < user.backpad.length) {
+                NetDeletion = false;
                 if (
                   confirm(
-                    "It looks like you're deleting content. Click 'save' again if you are sure."
+                    "It looks like you are deleting content. Click 'OK' if you are sure.",
                   )
                 ) {
-                  DeleteConfirmation = true;
+                  NetDeletion = true;
+                } else {
+                  return false;
                 }
-              }}>Save</button
-            >
-          {:else}
-            <button name="id" value={user.id} type="submit"> Save </button>
-          {/if}
+              }
+            }}>Save</button
+          >
         {/if}
       </div>
     </div>
@@ -69,11 +101,6 @@
 </form>
 
 <style>
-  @font-face {
-    font-family: "MoreSugar-Regular";
-    src: local("MoreSugar-Regular"),
-      url(/src/lib/assets/fonts/MoreSugar-Regular.otf);
-  }
   details {
     overflow: hidden;
     border: 3px solid black;
@@ -85,24 +112,12 @@
     border-radius: 1rem;
   }
   summary {
-    padding: 0.5rem;
-    font-size: 1.2rem;
     cursor: zoom-in;
-    font-family: MoreSugar-Regular;
-    background: rgb(224, 224, 224);
   }
   details:open summary {
     cursor: zoom-out;
   }
   button {
     margin-top: 0.5rem;
-  }
-  .button_bar {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 0.5rem;
-  }
-  .details_content {
-    padding: 0.5rem;
   }
 </style>

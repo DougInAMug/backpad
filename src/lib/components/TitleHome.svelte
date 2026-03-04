@@ -1,7 +1,1 @@
-<a href="/"><h1>Backpad 🗒️</h1></a>
-
-<style>
-  a {
-    color: black;
-  }
-</style>
+<a href="/"><h1 style="color: black;">Backpad 🗒️</h1></a>

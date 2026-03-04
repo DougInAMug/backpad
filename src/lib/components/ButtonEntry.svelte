@@ -9,23 +9,21 @@
 </script>
 
 {#if clickHandler}
-  <button onclick={() => clickHandler()} {disabled}>
+  <button onclick={() => clickHandler()} class="button-like" {disabled}>
     {text}
   </button>
 {:else if url}
-  <a href={url}>
-    <button {disabled}>
-      {text}
-    </button>
+  <a href={url} class="button-like">
+    {text}
   </a>
 {:else}
-  <button {disabled}>
+  <button class="button-like" {disabled}>
     {text}
   </button>
 {/if}
 
 <style>
-  button {
+  .button-like {
     width: 12rem;
     padding: 0.5rem;
     margin-top: var(--margin-top, 1.5rem);
@@ -34,6 +32,8 @@
     font-size: 1.2rem;
     font-weight: bold;
     background-color: var(--color);
+    text-align: center;
+    color: black;
   }
   button:hover,
   button:disabled {
